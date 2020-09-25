@@ -21,7 +21,7 @@ def get_tweet(query):
    tweets=tweepy.Cursor(api.search, q=query).items(1000)
    outputOfTweets =[]
    for tweet in tweets:
-      outputOfTweets.append(i._json['text'])
+      outputOfTweets.append(tweet._json['text'])
    return outputOfTweets
 #x= tweepy.Cursor(api.search, q='cricket', geocode="-22.9122,-43.2302,1km").pages(1)
          
