@@ -20,8 +20,9 @@ def get_tweet(query):
    #Crawl the recent twitter for items
    tweets=tweepy.Cursor(api.search, q=query).items(1000)
    outputOfTweets =[]
-   for i in x:
+   for tweet in tweets:
       outputOfTweets.append(i._json['text'])
    return outputOfTweets
+#x= tweepy.Cursor(api.search, q='cricket', geocode="-22.9122,-43.2302,1km").pages(1)
          
 get_tweet()
