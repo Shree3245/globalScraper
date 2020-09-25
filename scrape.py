@@ -1,8 +1,11 @@
-import tweepy
-from pprint import pprint
+import tweepy                       #Module used to retrieve tweets
+from pprint import pprint           #Module used for clarity behind prints
 
+def get_geoCode(location):
+   pass
 
-def get_tweet(query):
+def get_tweet(query,location):
+   print(location)
    #Authenticate program using api
    #Use users auth keys
    consumer_key = "jLSfYIkrNyp4vCHOYTwfLQX2K"
@@ -25,4 +28,4 @@ def get_tweet(query):
    return outputOfTweets
 #x= tweepy.Cursor(api.search, q='cricket', geocode="-22.9122,-43.2302,1km").pages(1)
          
-get_tweet()
+get_tweet('cricket','asd')
