@@ -18,14 +18,10 @@ def get_tweet(query):
    api = tweepy.API(auth)
 
    #Crawl the recent twitter for items
-   x=tweepy.Cursor(api.search, q=query).items(1000)
-   #x= tweepy.Cursor(api.search, q='cricket', geocode="-22.9122,-43.2302,1km").pages(1)
-   tweets =[]
+   tweets=tweepy.Cursor(api.search, q=query).items(1000)
+   outputOfTweets =[]
    for i in x:
-      # for y in i:
-      #    print(y._json['text'])
-      #    print("\n")
-      tweets.append(i._json['text'])
-   return tweets
+      outputOfTweets.append(i._json['text'])
+   return outputOfTweets
          
 get_tweet()
