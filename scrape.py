@@ -23,4 +23,3 @@ api = tweepy.API(auth)
 x= tweepy.Cursor(api.user_timeline, q='cricket', geocode="-22.9122,-43.2302,1km").pages(1)
 pprint(x)
 
-print(hello)
