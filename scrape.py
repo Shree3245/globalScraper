@@ -23,12 +23,12 @@ def get_tweet(query,location=None):
     #get the geo data
     geo = get_geoCode(location)
 
-    #Crawl the recent twitter for items
-    tweets=tweepy.Cursor(api.search, q=query,geocode=geo).items(1000)
-    outputOfTweets =[]
-    for tweet in tweets:
-        outputOfTweets.append(tweet._json['text'])
-    return outputOfTweets
+    #Crawl the recent twitter for tweets
+    # tweets=tweepy.Cursor(api.search, q=query,geocode=str(geo)).items(1000)
+    # outputOfTweets =[]
+    # for tweet in tweets:
+    #     outputOfTweets.append(tweet._json['text'])
+    # return outputOfTweets
 
 if __name__ == "__main__":
     #Authenticate program using api
@@ -49,12 +49,12 @@ if __name__ == "__main__":
     
     query = input("What Topic would you like to scrape: ")
     location = input("Would you like to gather data from a certain location (Y/N): ")
-    if location == "N" or 'n':
-        location = None
-    else:
+    if location.lower() == "y":
         print("Where would you like to gather data from:")
         print("For example 'Hyderabad', or 'London' or even a specific address like: ")
         print("1A Survey No: 62, Bahadurpally, Hyderabad, Telangana 500043? \n")
-        location = input("Please enter: ")    
+        location = input("Please enter: ") 
+    else:
+        location= None
     #start the model
-    pprint(get_tweet("criket", location))
+    pprint(get_tweet(query, location))
