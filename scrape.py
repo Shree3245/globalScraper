@@ -22,13 +22,15 @@ def get_tweet(query,location=None):
         
     #get the geo data
     geo = get_geoCode(location)
-
+    print(geo[0])
+    geo = "{},{},1km".format(geo[0],geo[1])
     #Crawl the recent twitter for tweets
-    # tweets=tweepy.Cursor(api.search, q=query,geocode=str(geo)).items(1000)
-    # outputOfTweets =[]
-    # for tweet in tweets:
-    #     outputOfTweets.append(tweet._json['text'])
-    # return outputOfTweets
+    print(geo)
+    tweets=tweepy.Cursor(api.search, q=query,geocode=geo).items(1000)
+    outputOfTweets =[]
+    for tweet in tweets:
+        outputOfTweets.append(tweet._json['text'])
+    return outputOfTweets
 
 if __name__ == "__main__":
     #Authenticate program using api
